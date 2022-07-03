@@ -21,18 +21,16 @@ col11, col12, col13, col14 = st.columns(4)
 
 with col11:
     price_option = st.selectbox(
-        'Price', ['Select', 'Audi', 'BMW', 'Mercedes', 'Volkswagen'])
+        'Price', ['Select', '10-15 L', '15-20 L', '20-25 L', '25-30 L', '30-50 L', '50-70 L', '70-99 L', '01-1.5 Cr', '1.5-3 Cr', '3-4 Cr'])
 with col12:
     cartype_option = st.selectbox('Car Type', [
-        'Audi', 'BMW', 'Mercedes', 'Volkswagen'])
+        'Select', 'Hatchback', 'Sedan', 'SUV', 'Sports', 'MPV'])
 with col13:
     fueltype_option = st.selectbox('Fuel Type', [
-        'Audi', 'BMW', 'Mercedes', 'Volkswagen'])
+        'Select', 'Petrol', 'Diesel', 'Electric', 'Hybrid'])
 with col14:
     seats_option = st.selectbox('Number of Seats', [
-        'Audi', 'BMW', 'Mercedes', 'Volkswagen'])
-
-st.write('Price:', price_option)
+        'Select', '2', '4', '5', '7'])
 
 # Creating connection object
 mydb = mysql.connector.connect(
@@ -45,16 +43,34 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 # cursor.execute("CREATE DATABASE motorqe")
+
 cursor.execute("USE motorqe")
-cursor.execute(
-    "CREATE TABLE IF NOT EXISTS car_details(company VARCHAR(100), type VARCHAR(50), fuel VARCHAR(255), seats INT(20), price INT(20))")
 
 cursor.execute(
-    "INSERT INTO car_details(company, type, fuel, seats, price) VALUES(%s, %s, %s, %s, %s)", ('Mercedes Benz', 'SUV', 'Diesel', 5, 2000000))
+    "CREATE TABLE IF NOT EXISTS car_details(company VARCHAR(100), car_type VARCHAR(50), fuel VARCHAR(255), seats INT(20), price INT(20))")
 
-if cartype_option == 'Mercedes':
+
+st.markdown("<h3 font-size: 10px; color: orange;'>Available Options</h3>",
+            unsafe_allow_html=True)
+
+if (price_option == '10-15 L') and (cartype_option == 'Hatchback') and (fueltype_option == 'Petrol') and (seats_option == '5'):
     cursor.execute(
-        "SELECT * FROM car_details WHERE company = 'Mercedes Benz'")
+        "SELECT * FROM car_details WHERE car_type = 'Hatchback' AND fuel = 'Petrol' AND seats = 5 AND price BETWEEN 1000000 AND 1500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '10-15 L') and (cartype_option == 'Hatchback') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'Hatchback' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 1000000 AND 1500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '10-15 L') and (cartype_option == 'SUV') and (fueltype_option == 'Petrol') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Petrol' AND seats = 5 AND price BETWEEN 1000000 AND 1500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '10-15 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 1000000 AND 1500000")
     myresult = pd.DataFrame(cursor.fetchall())
     st.write(myresult)
 
