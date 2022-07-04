@@ -73,6 +73,61 @@ elif (price_option == '10-15 L') and (cartype_option == 'SUV') and (fueltype_opt
         "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 1000000 AND 1500000")
     myresult = pd.DataFrame(cursor.fetchall())
     st.write(myresult)
-
+elif (price_option == '15-20 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 1500000 AND 2000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '20-25 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 2000000 AND 2500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '25-30 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 2500000 AND 3000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '30-50 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 3000000 AND 5000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '50-70 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 5000000 AND 7000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '70-99 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 5 AND price BETWEEN 7000000 AND 9900000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '3-4 Cr') and (cartype_option == 'Sports') and (fueltype_option == 'Petrol') and (seats_option == '2'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'Sports' AND fuel = 'Petrol' AND seats = 2 AND price BETWEEN 30000000 AND 40000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '25-30 L') and (cartype_option == 'SUV') and (fueltype_option == 'Electric') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Electric' AND seats = 5 AND price BETWEEN 2500000 AND 3000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '20-25 L') and (cartype_option == 'SUV') and (fueltype_option == 'Electric') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Electric' AND seats = 5 AND price BETWEEN 2000000 AND 2500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '30-35 L') and (cartype_option == 'SUV') and (fueltype_option == 'Electric') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Electric' AND seats = 5 AND price BETWEEN 3000000 AND 3500000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+elif (price_option == '15-20 L') and (cartype_option == 'SUV') and (fueltype_option == 'Diesel') and (seats_option == '7'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 7 AND price BETWEEN 1500000 AND 2000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+    
 for x in cursor:
     print(x)
