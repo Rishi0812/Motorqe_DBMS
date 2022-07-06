@@ -128,6 +128,11 @@ elif (price_option == '15-20 L') and (cartype_option == 'SUV') and (fueltype_opt
         "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Diesel' AND seats = 7 AND price BETWEEN 1500000 AND 2000000")
     myresult = pd.DataFrame(cursor.fetchall())
     st.write(myresult)
-    
+elif (price_option == '15-20 L') and (cartype_option == 'SUV') and (fueltype_option == 'Electric') and (seats_option == '5'):
+    cursor.execute(
+        "SELECT * FROM car_details WHERE car_type = 'SUV' AND fuel = 'Electric' AND seats = 5 AND price BETWEEN 1500000 AND 2000000")
+    myresult = pd.DataFrame(cursor.fetchall())
+    st.write(myresult)
+
 for x in cursor:
     print(x)
